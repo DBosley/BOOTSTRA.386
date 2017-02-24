@@ -1,0 +1,764 @@
+@import '~bootstrap/less/bootstrap';
+@import 'variables';
+
+#wrap386 {
+  z-index: 9999999;
+  background: @blueDark;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+#bar386 {
+  color: @white;
+  font-weight: bold;
+  float: right;
+  background: @blueDark;
+  height: @baseLineHeight;
+  margin-top: -@baseLineHeight;
+  width: 100%;
+}
+#cursor386 {
+  z-index: 9999999;
+  color: @white;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+body {
+  visibility: hidden;
+}
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  border: inherit;
+  border-radius: inherit;
+  > p + p {
+    margin-top: 0;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: @rhsNB;
+}
+
+//
+// Badges
+// --------------------------------------------------
+
+
+// Base class
+.badge {
+  min-width: @baseWidth;
+  padding: 0 @rhsNB 0 @lhsNB;
+  font-weight: inherit;
+  vertical-align: baseline;
+  border-radius: inherit;
+
+  .btn & {
+    top: inherit;
+  }
+  
+  .btn-xs & {
+    top: 0;
+    padding: inherit;
+  }
+
+  .btn-group-xs > .btn &{
+    top: inherit;
+    padding: inherit;
+  }
+  
+  .list-group-item > & + & {
+    margin-right: inherit;
+  }
+  
+  .nav-pills > li > a > & {
+    margin-left: inherit;
+  }
+}
+
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumb {
+  border-radius: inherit;
+  > li {
+    + li:before {
+      padding: 0 @baseWidth;
+    }
+  }
+}
+
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+  > .btn {
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: inherit;
+      color: @gray;
+      background: @black;
+      &::first-letter {
+        color: @gray;
+      }
+    }
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar {
+  margin-left: -5px; // Offset the first child's margin
+  &:extend(.clearfix all);
+
+  .btn{
+    float: inherit;
+  }
+  .btn-group,
+  .input-group {
+    float: left;
+  }
+  > .btn,
+  > .btn-group,
+  > .input-group {
+    margin-left: @lhs;
+  }
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: inherit;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.btn-group > .btn:first-child {
+  margin-left: 0;
+  &:not(:last-child):not(.dropdown-toggle) {
+    .border-right-radius(inherit);
+  }
+}
+// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  .border-left-radius(inherit);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.btn-group > .btn-group {
+  float: left;
+}
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: inherit;
+}
+.btn-group > .btn-group:first-child:not(:last-child) {
+  > .btn:last-child,
+  > .dropdown-toggle {
+    .border-right-radius(inherit);
+  }
+}
+
+// Split button dropdowns
+// ----------------------
+
+// Give the line between buttons some depth
+.btn-group > .btn + .dropdown-toggle {
+  padding-left: @baseWidth;
+  padding-right: @baseWidth;
+}
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-left: @baseWidth;
+  padding-right: @baseWidth;
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inherit; // iOS <4.3 & Android <4.1
+          box-shadow: inherit;
+}
+
+// Upside down carets for .dropup
+.dropup .btn-lg .caret {
+  border-width: inherit;
+}
+
+
+// Vertical button groups
+// ----------------------
+
+.btn-group-vertical > .btn {
+  &:not(:first-child):not(:last-child) {
+    border-radius: inherit;
+  }
+  &:first-child:not(:last-child) {
+    .border-top-radius(inherit);
+    .border-bottom-radius(inherit);
+  }
+  &:last-child:not(:first-child) {
+      .border-top-radius(inherit);
+    .border-bottom-radius(inherit);
+  }
+}
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: inherit;
+}
+.btn-group-vertical > .btn-group:first-child:not(:last-child) {
+  > .btn:last-child,
+  > .dropdown-toggle {
+    .border-bottom-radius(inherit);
+  }
+}
+
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+    margin-bottom: inherit; // For input.btn
+  font-weight: inherit;
+    cursor: inherit;
+
+  padding: 0 @baseLineWidth;
+  .box-shadow(~"@{baseLineWidth} @{halfbaseLineHeight} 0 rgb(0,0,0)");
+  cursor: default;
+  border: 0px;
+    white-space: inherit;
+  .button-size(inherit; inherit; inherit; inherit; inherit);
+
+
+  &::first-letter {
+    color: @redDark;
+  }
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    outline: 0;
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  &:active,
+  &.active {
+    color: @gray !important;
+    background: @black !important;
+    background-image: inherit;
+    &::first-letter {
+      color: @gray !important;
+    }
+    .box-shadow(inherit)
+  }
+
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks
+  }
+  a& {
+    &.disabled,
+    fieldset[disabled] & {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+}
+}
+.navbar .btn {
+  background: @grayDark;
+  color: @white;
+  .box-shadow(none);
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Success appears as green
+.btn-success {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+// Info appears as blue-green
+.btn-info {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+// Warning appears as orange
+.btn-warning {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+// Danger and error appear as red
+.btn-danger {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link {
+  &:hover,
+  &:focus {
+    text-decoration: inherit;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      text-decoration: inherit;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+  padding: @baseLineHeight @baseLineWidth;
+}
+.btn-sm{
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  .box-shadow(none);
+}
+.btn-xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+  .box-shadow(none);
+}
+
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top:  @baseLineHeight;
+}
+
+//
+// Carousel
+// --------------------------------------------------
+
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  > .item {
+    display: none;
+    position: relative;
+
+    // Account for jankitude on images
+    > img,
+    > a > img {
+      &:extend(.img-responsive);
+      line-height: 1;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      .backface-visibility(~'hidden');
+      .perspective(1000);
+
+      &.next,
+      &.active.right {
+        .translate3d(100%, 0, 0);
+        left: 0;
+      }
+      &.prev,
+      &.active.left {
+        .translate3d(-100%, 0, 0);
+        left: 0;
+      }
+      &.next.left,
+      &.prev.right,
+      &.active {
+        .translate3d(0, 0, 0);
+        left: 0;
+      }
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    left: 0;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    left: 100%;
+  }
+  > .prev {
+    left: -100%;
+  }
+  > .next.left,
+  > .prev.right {
+    left: 0;
+  }
+
+  > .active.left {
+    left: -100%;
+  }
+  > .active.right {
+    left: 100%;
+  }
+
+}
+
+// Left/right controls for nav
+// ---------------------------
+
+.carousel-control {
+  // Set gradients for backgrounds
+  &.left {
+    background-image:inherit;
+  }
+  &.right {
+    left: auto;
+    right: 0;
+    background-image:inherit;
+  }
+
+  // Toggles
+  .icon-prev,
+  .icon-next,
+  .glyphicon-chevron-left,
+  .glyphicon-chevron-right {
+    margin-top: inherit;
+  }
+  
+  .icon-prev,
+  .icon-next {
+    margin-top: -10px;
+  }
+}
+
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.carousel-indicators {
+  li {
+    border: @borderWidth solid @carousel-indicator-border-color;
+    border-radius: inherit;
+  }
+}
+
+// Scale up controls for tablets and up
+@media screen and (min-width: @screen-sm-min) {
+
+  // Scale up the controls a smidge
+  .carousel-control {
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right,
+    .icon-prev,
+    .icon-next {
+      width: 30px;
+      height: 30px;
+      margin-top: -15px;
+      font-size: @font-size-base;
+    }
+    .glyphicon-chevron-left,
+    .icon-prev {
+      margin-left: -15px;
+    }
+    .glyphicon-chevron-right,
+    .icon-next {
+      margin-right: -15px;
+    }
+  }
+}
+
+
+
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+  padding: @jumbotron-padding (@jumbotron-padding);
+  padding: @jumbotron-padding;
+  margin: @ts @lhs @bs @rhs;
+  border: @borderWidth solid @gray;
+
+  h1,
+  .h1 {
+    margin: 0;
+  }
+  
+  p {
+    margin-bottom: 0;
+    font-size: @jumbotron-font-size;
+    font-weight: inherit;
+
+  }
+
+  > hr {
+    border-top-color: @jumbotron-bg;
+  }
+
+  .container &,
+  .container-fluid & {
+    border-radius:inherit; // Only round corners at higher resolutions if contained in a container
+    padding-left:  inherit;
+    padding-right: inherit;
+
+  }
+
+  @media screen and (min-width: @screen-sm-min) {
+    padding: (@jumbotron-padding) 0;
+
+    .container &,
+    .container-fluid & {
+      padding-left:  (@jumbotron-padding);
+      padding-right: (@jumbotron-padding);
+    }
+
+    h1,
+    .h1 {
+      font-size: @font-size-base;
+    }
+  }
+}
+
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: @baseLineHeight;
+  margin: 0 0 @baseLineHeight 0;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  line-height: @baseLineHeight;
+  margin-top: inherit;
+  margin-bottom: inherit;
+
+  small,
+  .small {
+    font-size: @font-size-base;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
+h1, .h1 { 
+  font-size: @font-size-h1; 
+  text-transform: uppercase;
+}
+h2, .h2 { 
+  font-size: @font-size-h2;
+  white-space:nowrap;
+}
+h3, .h3 { 
+  font-size: @font-size-h3;
+  &:before {
+    content: "[";
+  }
+  &:after {
+    content: "]";
+  }
+}
+h4, .h4 { font-size: @font-size-h4; 
+  small{
+    font-size: @font-size-base;
+  }
+}
+h5, .h5 { font-size: @font-size-h5; }
+h6, .h6 { font-size: @font-size-h6; }
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 @line-height-computed;
+}
+
+.lead {
+  font-size: @font-size-base;
+  font-weight: normal;
+  line-height: 1;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: @font-size-base;
+  }
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+  font-size: @font-size-small;
+}
+
+mark,
+.mark {
+  padding: 0;
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  border-bottom: @borderWidth solid @page-header-border-color;
+}
+
+
+// Lists
+// -------------------------
+
+
+i, cite, em, var, address, dfn,
+del,s,ins,u {
+  font-style: normal;
+  text-decoration: none;
+}
+del,s {
+  background: @black;
+  color: @grayDark;
+}
+ins {
+  background: @cyanDark;
+  color: @white;
+}
+small {
+  text-transform: lowercase;
+}
+small:before { content: '*note: '}
+ins:before { content: '<'; }
+ins:after { content: '>'; }
+del:before,s:before, { content: '[' };
+del:after,s:after { content: '](removed)'; }
+u:before, u:after { content: '_'; }
+em:before, em:after { content: '/'; }
+
+strong {
+  text-transform: uppercase;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  .list-unstyled();
+  margin: 0;
+  padding: 0;
+
+  > li {
+    padding: 0 @baseWidth;
+  }
+}
+
+// Description Lists
+dt {
+  font-weight: normal;
+}
+
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  border-bottom: 0px dotted @abbr-border-color;
+}
+.initialism {
+  font-size: @font-size-base;
+  .text-uppercase();
+}
+
+// Blockquotes
+blockquote {
+  padding: (@line-height-computed) @line-height-computed;
+  margin: 0 0 @baseLineHeight;
+  border-left: (@baseLineWidth / 2) solid @gray;
+  font-size: inherit;
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    font-size: @font-size-base;
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: @baseWidth;
+  border-right: (@baseLineWidth / 2) solid @gray;
+}
