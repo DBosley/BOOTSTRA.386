@@ -1,0 +1,52 @@
+{
+  "name": "bootstra.386",
+  "version": "3.3.7-a1",
+  "description": "A Twitter Bootstrap theme to make webpages look like they are from the 1980s.",
+  "scripts": {
+    "deploy": "gh-pages-deploy",
+    "build": "npm run clean && webpack --progress --profile --bail",
+    "clean": "rimraf dist",
+    "webpack": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBosley/BOOTSTRA.386.git"
+  },
+  "author": "Chris McKenzie",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DBosley/BOOTSTRA.386/issues"
+  },
+  "homepage": "http://dbosley.github.io/BOOTSTRA.386/",
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean"
+    ],
+    "noprompt": false
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "gh-pages-deploy": "^0.4.2",
+    "html-webpack-plugin": "^2.28.0",
+    "html5shiv": "^3.7.3",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "raw-loader": "^0.5.1",
+    "respond": "^0.9.0",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  }
+}
