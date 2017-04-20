@@ -1,0 +1,28 @@
+//
+// Badges
+// --------------------------------------------------
+// Base class
+.badge {
+  min-width: @baseWidth;
+  padding: 0 @rhsNB 0 @lhsNB;
+  font-weight: inherit;
+  vertical-align: baseline;
+  border-radius: inherit;
+  .btn & {
+    top: inherit;
+  }
+  .btn-xs & {
+    top: 0;
+    padding: inherit;
+  }
+  .btn-group-xs > .btn & {
+    top: inherit;
+    padding: inherit;
+  }
+  .list-group-item > & + & {
+    margin-right: inherit;
+  }
+  .nav-pills > li > a > & {
+    margin-left: inherit;
+  }
+}

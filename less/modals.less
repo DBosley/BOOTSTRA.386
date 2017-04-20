@@ -1,0 +1,128 @@
+//
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+
+// Container that the modal scrolls within
+.modal {
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    -webkit-transition: inherit;
+       -moz-transition: inherit;
+         -o-transition: inherit;
+            transition: inherit;
+    -webkit-transform: inherit;
+        -ms-transform: inherit; // IE9 only
+         -o-transform: inherit;
+            transform: inherit;
+  }
+  &.in .modal-dialog {
+    .translate(0, 0);
+  }
+}
+
+.modal .btn {
+  .box-shadow(none);
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog {
+  margin: @baseLineHeight 0;
+}
+
+// Actual modal
+.modal-content {
+  color: @black;
+  border: inherit;
+  border-radius: inherit;
+
+  .box-shadow(~"@{baseLineWidth} @{halfbaseLineHeight} 0 rgb(0,0,0)");
+}
+
+// Modal background
+.modal-backdrop {
+  // Fade for backdrop
+  &.fade {
+opacity: inherit;
+  // IE8 filter
+  @opacity-ie: inherit;
+  filter: inherit;  
+  }
+  &.in {
+    opacity: inherit;   // IE8 filter   @opacity-ie: inherit;   filter: inherit;  
+  }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+  min-height: inherit;
+  padding: inherit;
+  border-bottom: inherit;
+}
+// Close icon
+.modal-header .close {
+  margin-top: 3px;
+  margin-right: 2px;
+  color: white;
+  opacity: 1;
+}
+
+.modal-body {
+  h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 0;
+    background: @grayDark;
+  }
+  a {
+    color: @blueDark;
+    background: transparent;
+    &:hover {
+      color: @white;
+      background: @brown;
+    }
+  }
+}
+
+// Title text within header
+.modal-title {
+  padding: @modal-title-padding;
+  margin: inherit;
+  color: @white;
+  background: @greenDark;
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
+  position: relative;
+  padding: @modal-inner-padding;
+}
+
+// Footer (for actions)
+.modal-footer {
+  padding: 0 0;
+  border-top: inherit;
+
+  // Properly space out buttons
+  .btn + .btn {
+    margin-left: @baseWidth;
+  }
+  // but override that for button groups
+  .btn-group .btn + .btn {
+    margin-left: inherit;
+  }
+}
+
+
+// Scale up the modal
+@media (min-width: @screen-sm-min) {
+  // Automatically set modal's width for larger viewports
+  .modal-content {
+    .box-shadow(inherit);
+  }
+}

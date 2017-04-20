@@ -1,0 +1,27 @@
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+.pagination {
+    border-radius: inherit;
+
+  > li {
+    > a,
+    > span {
+      padding: 0 @baseWidth;
+      border: inherit;
+      margin-left: inherit;
+    }
+    &:first-child {
+      > a,
+      > span {
+          .border-left-radius(inherit);
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+          .border-right-radius(inherit);
+      }
+    }
+  }
+}

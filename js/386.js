@@ -1,42 +1,17 @@
 window._386 = window._386 || {};
-
-$(function () {
+document.addEventListener("DOMContentLoaded", function () {
   'use strict';
-  var character = { height: 20, width: 10 };
+  var character = {
+    height: 20,
+    width: 10
+  };
 
-  /*
-  function scrollLock() {
-    var last = 0;
-    $(window).bind('scroll', function(e) {
-      var func, off = $(window).scrollTop();
-
-      //console.log(off, last, off < last ? "up" : "down");
-
-      // this determines whether the user is intending to go up or down.
-      func = off < last ? "floor" : "ceil";
-
-      // make sure we don't run this from ourselves
-      if (off % character.height === 0) {
-        return;
-      }
-      last = off;
-
-      window.scrollTo(
-        0,
-        Math[func](off / character.height) * character.height
-      );
-
-    });
-  }
-  */
-
-  function loading () {
-
+  function loading() {
     if (window._386.fastLoad) {
       document.body.style.visibility = 'visible';
       return;
     }
-
+    
     var
       onePass = window._386.onePass,
       speedFactor = 1 / (window._386.speedFactor || 1) * 165000,
@@ -47,14 +22,15 @@ $(function () {
       // If the user specified that the visibility is hidden, then we
       // start at the first pass ... otherwise we just do the
       // cursor fly-by
-      pass = ($(document.body).css('visibility') == 'visible') ? 1 : 0,
-      height = $(window).height(),
-      width = $(window).width(),
+      pass = (document.body.visibility === 'visible') ? 1 : 0,
+      height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+      width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
 
       // this makes the loading of the screen proportional to the real-estate of the window.
       // it helps keep the cool sequence there while not making it waste too much time.
       rounds = (height * width / speedFactor),
-      column = width, row = height - character.height;
+      column = width,
+      row = height - character.height;
 
     wrap.id = 'wrap386';
     bar.id = 'bar386';
@@ -111,4 +87,3 @@ $(function () {
   }
   loading();
 });
-

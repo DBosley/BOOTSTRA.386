@@ -1,0 +1,37 @@
+//
+// Scaffolding
+// --------------------------------------------------
+@font-face {
+  font-family: 'DOS';
+  src: url('../fonts/Fixedsys500c.eot');
+  src: local('☺'), url('../fonts/Fixedsys500c.woff') format('woff'), url('../fonts/Fixedsys500c.ttf') format('truetype'), url('../fonts/Fixedsys500c.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-size: @font-size-base;
+  -webkit-tap-highlight-color: @black;
+}
+
+// Links
+
+a {
+  color: inherit;
+  &:hover,
+  &:focus {
+    background: @component-active-bg;
+    &::first-letter {
+      color: @yellow;
+    }
+  }
+}
+
+// Image thumbnails
+//
+// Heads up! This is mixin-ed into thumbnails.less for `.thumbnail`.
+.img-thumbnail {
+  border: @borderWidth solid @thumbnail-border;
+  border-radius: inherit;
+  .transition(inherit);
+}

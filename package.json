@@ -4,6 +4,7 @@
   "description": "A Twitter Bootstrap theme to make webpages look like they are from the 1980s.",
   "scripts": {
     "deploy": "gh-pages-deploy",
+    "start": "npm run clean && webpack --progress --watch",
     "build": "npm run clean && webpack --progress --profile --bail",
     "clean": "rimraf dist",
     "webpack": "webpack"
@@ -46,7 +47,6 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1"
+    "bootstrap": "^3.3.7"
   }
 }

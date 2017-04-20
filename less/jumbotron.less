@@ -1,0 +1,39 @@
+//
+// Jumbotron
+// --------------------------------------------------
+.jumbotron {
+  padding: @jumbotron-padding (@jumbotron-padding);
+  padding: @jumbotron-padding;
+  margin: @ts @lhs @bs @rhs;
+  border: @borderWidth solid @gray;
+  h1,
+  .h1 {
+    margin: 0;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  > hr {
+    border-top-color: @jumbotron-bg;
+  }
+  .container &,
+  .container-fluid & {
+    padding-right: inherit;
+    padding-left: inherit;
+    border-radius: inherit; // Only round corners at higher resolutions if contained in a container
+  }
+  @media screen and (min-width: @screen-sm-min) {
+    padding: (@jumbotron-padding) 0;
+    .container &,
+    .container-fluid & {
+      padding-right: (@jumbotron-padding);
+      padding-left: (@jumbotron-padding);
+    }
+    h1,
+    .h1 {
+      font-size: @font-size-base;
+    }
+  }
+}

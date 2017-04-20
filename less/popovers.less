@@ -1,0 +1,35 @@
+//
+// Popovers
+// --------------------------------------------------
+
+
+.popover {
+  color: @black;
+  padding: 0px;
+  // Reset font and text properties given new insertion method
+  font-weight: inherit;
+  border: inherit;
+  border-radius: inherit;
+  .box-shadow(inherit);
+}
+
+.popover-title {
+  padding: 0 @baseWidth;
+  color: @white;
+  font-size: inherit;
+  border-bottom: inherit;
+  border-radius: inherit;
+}
+
+.popover-content {
+  padding: 0 @baseWidth;
+}
+
+// Arrows
+//
+// .arrow is outer, .arrow:after is inner
+
+.popover > .arrow {
+  display: none;
+}
+

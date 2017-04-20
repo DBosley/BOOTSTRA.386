@@ -1,0 +1,21 @@
+//
+// Pager pagination
+// --------------------------------------------------
+
+
+.pager {
+  li {
+    > a,
+    > span {
+      color: @pagination-color;
+      padding: @ts @rhs @bs @lhs;
+      margin: 4px @rhs 8px @rhsNB;
+      border: @borderWidth solid @black;
+      border-radius: inherit;
+    .box-shadow(0px 0px 0 4px @gray);
+    -webkit-background-clip: padding-box;
+        -moz-background-clip: padding;
+            background-clip: padding-box;
+    }
+  }
+}

@@ -10,12 +10,12 @@ const root = path.join.bind(path, ROOT);
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development';
 const config = {
     entry: {
-        "386": ['./js/386.js', './less/BOOTSTRA.386.less']
+        "BOOTSTRA.386": ['./demo/styles.less', './js/386.js']
     },
     devtool: 'source-map',
 
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].js',
         sourceMapFilename: '[file].map',
         path: root('dist')
     },
@@ -31,7 +31,17 @@ const config = {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader!less-loader'
+                    use: [{
+                        loader: "css-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    }, {
+                        loader: "less-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    }]
                 }),
             },
             {
@@ -55,12 +65,6 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'demo/index.html',
             chunksSortMode: 'dependency',
-        }),
-
-        new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery',
-            jquery: 'jquery'
         }),
         new ExtractTextPlugin('[name].css'),
     ],

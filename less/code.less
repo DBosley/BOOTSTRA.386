@@ -1,0 +1,46 @@
+//
+// Code (inline and block)
+// --------------------------------------------------
+// Inline code
+code {
+  padding: 0;
+  font-size: @font-size-base;
+  border-radius: inherit;
+}
+// User input typically entered via keyboard
+kbd {
+  padding: 0;
+  font-size: @font-size-base;
+  border-radius: inherit;
+  box-shadow: inherit;
+  kbd {
+    font-size: @font-size-base;
+    font-weight: normal;
+    box-shadow: inherit;
+  }
+}
+// Blocks of code
+pre {
+  font-size: @font-size-base;
+  border: @borderWidth solid @pre-border-color;
+  border-radius: inherit;
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    border-radius: inherit;
+  }
+}
+//
+// Component animations
+// --------------------------------------------------
+// Heads up!
+//
+// We don't use the `.opacity()` mixin here since it causes a bug with text
+// fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552.
+.fade {
+  .transition(inherit);
+}
+.collapsing {
+  .transition-property(inherit);
+  .transition-duration(inherit);
+  .transition-timing-function(inherit);
+}

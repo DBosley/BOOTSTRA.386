@@ -1,0 +1,27 @@
+//
+// Labels
+// --------------------------------------------------
+
+.label {
+  padding: 0 @baseWidth;
+  font-size: @font-size-base;
+  font-weight: inherit;
+  line-height: @baseLineHeight;
+  border-radius: inherit;
+
+  // Quick fix for labels in buttons
+  .btn & {
+    top: inherit;
+  }
+}
+
+// Colors
+// Contextual variations (linked labels get darker on :hover)
+
+.label-default {
+  color: @black;
+}
+
+.label-primary {
+  color: @black;
+}

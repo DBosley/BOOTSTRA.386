@@ -1,0 +1,29 @@
+//
+// Tooltips
+// --------------------------------------------------
+
+
+// Base class
+.tooltip {
+  font-weight: inherit;
+  line-height: @baseLineHeight;
+
+  &.in     { opacity: inherit;   
+  // IE8 filter   
+  @opacity-ie: inherit;   filter: inherit;   }
+  &.top    { margin-top:  0px; padding: @tooltip-arrow-width 0; }
+  &.right  { margin-left: 0px; padding: 0 @tooltip-arrow-width; }
+  &.bottom { margin-top:  0px; padding: @tooltip-arrow-width 0; }
+  &.left   { margin-left: 0px; padding: 0 @tooltip-arrow-width; }
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+  padding: 0 @baseWidth;
+  border-radius: inherit;
+}
+
+// Arrows
+.tooltip-arrow {
+  display: none;
+}

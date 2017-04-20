@@ -1,0 +1,20 @@
+//
+// Alerts
+// --------------------------------------------------
+// Base styles
+// -------------------------
+.alert {
+  border: inherit;
+  border-radius: inherit;
+  > p + p {
+    margin-top: 0;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: @rhsNB;
+}

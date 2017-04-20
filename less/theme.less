@@ -1,0 +1,169 @@
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "variables.less";
+@import "mixins.less";
+
+
+//
+// Buttons
+// --------------------------------------------------
+
+// Common styles
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+    text-shadow: inherit;
+  .box-shadow(inherit);
+
+  // Reset the shadow
+  &:active,
+  &.active {
+      .box-shadow(inherit);
+  }
+}
+
+// Mixin for generating new styles
+.btn-styles(@btn-color: #555) {
+  .reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
+  border-color: @btn-color;
+
+  &:hover,
+  &:focus  {
+    background-color: @btn-color;
+  }
+
+  &:active,
+  &.active {
+    background-color: @btn-color;
+    border-color: @btn-color;
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+    background-color: @btn-color;
+  }
+}
+
+// Apply the mixin to the buttons
+.btn-default { .btn-styles(@btn-default-bg); border-color: #ccc; }
+
+//
+// Images
+// --------------------------------------------------
+
+.thumbnail,
+.img-thumbnail {
+    .box-shadow(inherit);
+}
+
+
+//
+// Dropdowns
+// --------------------------------------------------
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: @dropdown-link-hover-bg;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  background-color: @dropdown-link-active-bg;
+}
+
+
+//
+// Navbar
+// --------------------------------------------------
+
+// Default navbar
+.navbar-default {
+  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  border-radius: inherit;
+  .box-shadow(inherit);
+
+  .navbar-nav > .open > a,
+  .navbar-nav > .active > a {
+      .box-shadow(inherit);
+  }
+}
+.navbar-brand,
+.navbar-nav > li > a {
+    text-shadow: inherit;
+}
+
+// Inverted navbar
+.navbar-inverse {
+  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
+
+  .navbar-nav > .open > a,
+  .navbar-nav > .active > a {
+      .box-shadow(inherit);
+  }
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+      text-shadow: inherit;
+  }
+}
+
+// Undo rounded corners in static and fixed navbars
+.navbar-static-top,
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+    border-radius: inherit;
+}
+
+//
+// Alerts
+// --------------------------------------------------
+
+// Common styles
+.alert {
+    text-shadow: inherit;
+    .box-shadow(inherit);
+}
+
+
+
+//
+// List groups
+// --------------------------------------------------
+
+.list-group {
+    border-radius: inherit;
+    .box-shadow(inherit);
+}
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  border-color: @list-group-active-border;
+  text-shadow: inherit;
+  border-color: inherit;
+}
+
+
+//
+// Panels
+// --------------------------------------------------
+
+// Common styles
+.panel {
+    .box-shadow(inherit);
+}
+
+
+//
+// Wells
+// --------------------------------------------------
+
+.well {
+  border-color: @well-bg;
+  .box-shadow(inherit);
+}

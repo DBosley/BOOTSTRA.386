@@ -1,0 +1,41 @@
+//
+// Dropdown menus
+// --------------------------------------------------
+// Dropdown arrow/caret
+.caret {
+  margin-left: 0;
+}
+// The dropdown menu (ul)
+.dropdown-menu {
+  min-width: (@baseLineWidth * 10);
+  padding: @ts @rhs @bs @lhs;
+  margin: @tsMargin @rhs 8px @rhsNB;
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+  border: @borderWidth solid @black;
+  border-radius: inherit;
+
+  .box-shadow(0px 0px 0 4px @gray);
+  > li {
+    list-style-type: none;
+    > a {
+      padding: 0 @baseWidth;
+    }
+  }
+}
+// Dropdown section headers
+.dropdown-header {
+  padding: 0 @baseWidth;
+}
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+//
+// Just add .dropup after the standard .dropdown class and you're set, bro.
+// TODO: abstract this so that the navbar fixed styles are not placed here?
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  // Different positioning for bottom up menu
+  .dropdown-menu {
+    margin-bottom: 4px;
+  }
+}

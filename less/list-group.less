@@ -1,0 +1,52 @@
+//
+// List groups
+// --------------------------------------------------
+
+
+// Base class
+//
+// Easily usable on <ul>, <ol>, or <div>.
+
+.list-group {
+  padding: @tsNB @rhs @bsNB @lhs;
+  // No need to set list-style: none; since .list-group-item is block level
+  margin: 0 @baseWidth (@baseLineHeight * 2) @baseWidth;
+  background-color: @list-group-bg;
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+  border: @borderWidth solid @black;
+
+  .box-shadow(0px 0px 0 5px @gray);
+}
+
+
+// Individual list items
+//
+// Use on `li`s or `div`s within the `.list-group` parent.
+
+.list-group-item {
+  padding: 0 @baseWidth;
+  margin-bottom: inherit;
+  color: @black;
+  border: inherit;
+
+  // Round the first and last items
+  &:first-child {
+    .border-top-radius(inherit);
+  }
+  &:last-child {
+    .border-bottom-radius(inherit);
+  }
+}
+
+// Custom content options
+//
+// Extra classes for creating well-formatted content within `.list-group-item`s.
+
+.list-group-item-heading {
+  margin-bottom: 0;
+}
+.list-group-item-text {
+  line-height: @line-height-base;
+}

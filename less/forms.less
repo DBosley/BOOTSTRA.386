@@ -1,0 +1,200 @@
+//
+// Forms
+// --------------------------------------------------
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+legend {
+  font-size: @font-size-base;
+  line-height: @baseLineHeight;
+  border-bottom: inherit;
+}
+legend:before {
+  content: "## ";
+}
+legend:after {
+  content: " ##";
+}
+label {
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 (@baseLineWidth / 2);
+  margin-top: inherit; // IE8-9
+  line-height: @baseLineHeight;
+}
+input[type="text"]:before {
+  content: "[";
+}
+input[type="text"]:after {
+  content: "]";
+}
+// Adjust output element
+output {
+  padding-top: 0;
+}
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+.form-control {
+  font-size: inherit;
+  border: none;
+  border-radius: inherit;
+
+  .box-shadow(inherit);
+  .transition(inherit);
+}
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+.form-group {
+  margin-bottom: @baseLineHeight;
+}
+// Checkboxes and radios
+//
+// Indent the labels to position radios/checkboxes as hanging controls.
+.radio,
+.checkbox {
+  margin-top: @ts;
+  margin-bottom: @bs;
+}
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -@ts; // Move up sibling radios or checkboxes for tighter spacing
+}
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+  padding-left: @baseWidth;
+}
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+.help-block {
+  margin-top: @ts;
+  margin-bottom: @bs;
+  color: @text-color;
+}
+
+//
+// Input groups
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+.input-group {
+  .form-control {
+    z-index: inherit;
+  }
+}
+
+// Display as table-cell
+// -------------------------
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  &:not(:first-child):not(:last-child) {
+    border-radius: inherit;
+  }
+}
+
+// Text input groups
+// -------------------------
+.input-group-addon {
+  margin: 0;
+  font-weight: inherit;
+  line-height: @baseLineHeight;
+  color: @cyan;
+  background-color: @black;
+  border: inherit;
+  border-radius: inherit;
+
+  // Sizing
+  &.input-sm {
+    border-radius: inherit;
+  }
+  &.input-lg {
+    border-radius: inherit;
+  }
+}
+
+// Reset rounded corners
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  .border-right-radius(inherit);
+}
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  .border-left-radius(inherit);
+}
+
+// Button input groups
+// -------------------------
+.input-group-btn {
+  // Negative margin for spacing, position for bringing hovered/focused/actived
+  // element above the siblings.
+  > .btn {
+    .box-shadow(none);
+    + .btn {
+      margin-left: inherit;
+    }
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: inherit;
+    }
+  }
+
+  // Negative margin to only have a 1px border between the two
+  &:first-child {
+    > .btn,
+    > .btn-group {
+      margin-right: inherit;
+    }
+  }
+  &:last-child {
+    > .btn,
+    > .btn-group {
+      margin-left: inherit;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+//
+// Buttons
+// --------------------------------------------------
+// Base styles
+// --------------------------------------------------
+.btn {
+  padding: 0 @baseLineWidth;
+  margin-bottom: inherit; // For input.btn
+  font-weight: inherit;
+  white-space: inherit;
+  cursor: inherit;
+  cursor: default;
+  border: 0;
+
+  .box-shadow(~"@{baseLineWidth} @{halfbaseLineHeight} 0 rgb(0,0,0)");
+  .button-size(inherit;
+  inherit;
+  inherit;
+  inherit;
+  inherit);
+  &::first-letter {
+    color: @redDark;
+  }
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+  }
+  &:hover,
+  &:focus,
+  &.focus {
+    color: inherit;
+    text-decoration: inherit;
+    outline: 0;
+  }
+  &:active,
+  &.active {
+    color: @gray !important;
+    background: @black !important;
+    background-image: inherit;
+
+    .box-shadow(inherit);
+    
+    &::first-letter {
+      color: @gray !important;
+    }
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks
+  }
+  a& {
+    &.disabled,
+    fieldset[disabled] & {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+  }
+}
+
+.navbar .btn {
+  color: @white;
+  background: @grayDark;
+
+  .box-shadow(none);
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Success appears as green
+.btn-success {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Info appears as blue-green
+.btn-info {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Warning appears as orange
+.btn-warning {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Danger and error appear as red
+.btn-danger {
+  &::first-letter {
+    color: @yellow;
+  }
+}
+
+// Link buttons
+// -------------------------
+// Make a button look and behave like a link
+.btn-link {
+  &:hover,
+  &:focus {
+    text-decoration: inherit;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      text-decoration: inherit;
+    }
+  }
+}
+
+// Button Sizes
+// --------------------------------------------------
+.btn-lg {
+  padding: @baseLineHeight @baseLineWidth;
+  // line-height: ensure even-numbered height of button next to large input
+
+  .button-size(@padding-large-vertical;
+  @padding-large-horizontal;
+  @font-size-large;
+  @line-height-large;
+  @border-radius-large);
+}
+
+.btn-sm {
+  .button-size(@padding-small-vertical;
+  @padding-small-horizontal;
+  @font-size-small;
+  @line-height-small;
+  @btn-border-radius-small);
+  .box-shadow(none);
+}
+
+.btn-xs {
+  .button-size(@padding-xs-vertical;
+  @padding-xs-horizontal;
+  @font-size-small;
+  @line-height-small;
+  @btn-border-radius-small);
+  .box-shadow(none);
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: @baseLineHeight;
+}

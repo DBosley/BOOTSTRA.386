@@ -1,0 +1,178 @@
+//
+// Navbars
+// --------------------------------------------------
+
+
+// Wrapper and base class
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  min-height: inherit;
+  border: inherit;
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: inherit;
+  }
+}
+
+
+// Navbar collapse (body)
+//
+// Group your navbar content into this for easy collapsing and expanding across
+// various device sizes. By default, this content is collapsed when <768px, but
+// will expand past that for a horizontal display.
+//
+// To start (on mobile devices) the navbar links, forms, and buttons are stacked
+// vertically and include a `max-height` to overflow in case you have too much
+// content for the user's viewport.
+
+.navbar-collapse {
+  border-top: 0 solid transparent;
+  box-shadow: inherit;
+
+  @media (min-width: @grid-float-breakpoint) {
+    box-shadow: inherit;
+  }
+}
+
+//
+// Navbar alignment options
+//
+// Display the navbar across the entirety of the page or fixed it to the top or
+// bottom of the page.
+
+// Static top (unfixed, but 100% wide) navbar
+.navbar-static-top {
+  border-width: inherit;
+
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: inherit;
+  }
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  // Undo the rounded corners
+  @media (min-width: @grid-float-breakpoint) {
+    border-radius: inherit;
+  }
+}
+.navbar-fixed-top {
+  border-width: inherit;
+}
+.navbar-fixed-bottom {
+  border-width: inherit;
+}
+
+
+// Brand/project name
+
+.navbar-brand {
+  height: inherit;
+  font-size: inherit;
+}
+
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+
+.navbar-toggle {
+  padding: 0px @baseWidth;
+  border: inherit;
+  border-radius: inherit;
+
+  // Bars
+  .icon-bar {
+    border-radius: inherit;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 0;
+  }
+}
+
+
+// Navbar nav links
+//
+// Builds on top of the `.nav` components with its own modifier class to make
+// the nav the full height of the horizontal nav (above 768px).
+
+.navbar-nav {
+  > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+    // Dropdowns get custom display when collapsed
+    .open .dropdown-menu {
+      box-shadow: inherit;
+    }
+  }
+
+  // Uncollapse the nav
+  @media (min-width: @grid-float-breakpoint) {
+    float: left;
+    margin: 0;
+    > li > a {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+
+// Navbar form
+//
+// Extension of the `.form-inline` with some extra flavor for optimum display in
+// our navbars.
+
+.navbar-form {
+  padding: 0 @navbar-padding-horizontal;
+  margin: 0 -@navbar-padding-horizontal;
+  border-top: inherit;
+  border-bottom: inherit;
+  .box-shadow(inherit);
+
+  .form-group {
+    @media (max-width: @grid-float-breakpoint-max) {
+      margin-bottom: 0;
+    }
+  }
+
+  // Vertically center in expanded, horizontal navbar
+  margin: 0;
+
+  // Undo 100% width for pull classes
+  @media (min-width: @grid-float-breakpoint) {
+    .box-shadow(inherit);
+  }
+}
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: inherit;
+  .border-top-radius(inherit);
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  .border-top-radius(inherit);
+  .border-bottom-radius(inherit);
+}
+
+// Alternate navbars
+// --------------------------------------------------
+
+// Inverse navbar
+
+.navbar-inverse {
+  .navbar-collapse,
+  .navbar-form {
+    border-color: @navbar-inverse-bg;
+  }
+}

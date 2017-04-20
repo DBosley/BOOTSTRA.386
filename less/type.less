@@ -1,0 +1,189 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: @baseLineHeight;
+  margin: 0 0 @baseLineHeight 0;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 { 
+    line-height: @baseLineHeight;
+}
+
+h3, .h3{
+    &:before {
+        content: "[";
+    }
+    &:after {
+        content: "]";
+    }
+}
+
+h1, .h1 { 
+    font-size: @font-size-base; 
+    text-transform: uppercase;
+    small, .small { 
+        font-size: @font-size-base; 
+    } 
+} // ~38px
+h2, .h2 { 
+    font-size: @font-size-base;
+    white-space:nowrap;
+    small, .small { 
+        font-size: @font-size-base; 
+    } 
+} // ~32px
+h3, .h3 { 
+    font-size: @font-size-base;
+    small, .small { 
+        font-size: @font-size-base; 
+    }  
+} // ~24px
+h4, .h4 { 
+    font-size: @font-size-base; 
+    color: @white;
+    small, .small { 
+        font-size: @font-size-base;
+    } 
+} // ~18px
+h5, .h5 { 
+    font-size: @font-size-base; 
+}
+h6, .h6 { 
+    font-size: @font-size-base; 
+} // ~12px
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 @line-height-computed;
+}
+
+.lead {
+  font-size: @font-size-base;
+  font-weight: normal;
+  line-height: 1;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: @font-size-base;
+  }
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+  font-size: @font-size-small;
+}
+
+mark,
+.mark {
+  padding: 0;
+}
+
+// Page header
+// -------------------------
+
+.page-header {
+  border-bottom: @borderWidth solid @page-header-border-color;
+}
+
+
+// Lists
+// -------------------------
+
+i, cite, em, var, address, dfn,
+del,s,ins,u {
+  font-style: normal;
+  text-decoration: none;
+}
+del,s {
+  background: @black;
+  color: @grayDark;
+}
+ins {
+  background: @cyanDark;
+  color: @white;
+}
+small {
+  text-transform: lowercase;
+}
+small:before { content: '*note: '}
+ins:before { content: '<'; }
+ins:after { content: '>'; }
+del:before,s:before, { content: '[' };
+del:after,s:after { content: '](removed)'; }
+u:before, u:after { content: '_'; }
+em:before, em:after { content: '/'; }
+
+strong {
+  text-transform: uppercase;
+}
+
+// List options
+
+// Inline turns list items into inline-block
+.list-inline {
+  .list-unstyled();
+  margin: 0;
+  padding: 0;
+
+  > li {
+    padding: 0 @baseWidth;
+  }
+}
+
+// Description Lists
+dt {
+  font-weight: normal;
+}
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  border-bottom: 0px dotted @abbr-border-color;
+}
+.initialism {
+  font-size: @font-size-base;
+}
+
+// Blockquotes
+blockquote {
+  padding: (@line-height-computed) @line-height-computed;
+  margin: 0 0 @baseLineHeight;
+  font-size: inherit;
+  border-left: (@baseLineWidth / 2) solid @gray;
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    font-size: @font-size-base;
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: @baseWidth;
+  border-right: (@baseLineWidth / 2) solid @gray;
+}

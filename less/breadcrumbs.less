@@ -1,0 +1,11 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+.breadcrumb {
+  border-radius: inherit;
+  > li {
+    + li:before {
+      padding: 0 @baseWidth;
+    }
+  }
+}

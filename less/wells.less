@@ -1,0 +1,27 @@
+//
+// Wells
+// --------------------------------------------------
+
+
+// Base class
+.well {
+  color: @white;
+  padding: @baseLineHeight @baseWidth;
+  margin-bottom: @baseLineHeight;
+  border: inherit;
+  border-radius: inherit;
+  .box-shadow(inherit);
+  blockquote {
+    border-color: rgba(0,0,0,0);
+  }
+}
+
+// Sizes
+.well-lg {
+  padding: (@ts * 2) (@rhs * 2) (@bs * 2) (@lhs * 2);
+  border-radius: inherit;
+}
+.well-sm {
+  padding: @ts @rhs @bs @lhs;
+  border-radius: inherit;
+}
