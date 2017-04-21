@@ -46,8 +46,8 @@
 @brand-primary:         @gray;
 @brand-primary-bg:      @cyanDark;
 @brand-success:         @greenDark;
-@brand-info:            @brown;
-@brand-warning:         @magentaDark;
+@brand-info:            @magentaDark;
+@brand-warning:         @brown;
 @brand-danger:          @redDark;
 
 
@@ -176,9 +176,9 @@
 //** Default background color used for all tables.
 @table-bg:                      transparent;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               @black;
+@table-bg-accent:               @gray-darker;
 //** Background color used for `.table-hover`.
-@table-bg-hover:                #f5f5f5;
+@table-bg-hover:                @black;
 @table-bg-active:               @table-bg-hover;
 
 //** Border color for table and cell borders.
@@ -513,7 +513,8 @@
 @pager-active-bg:                      @pagination-active-bg;
 @pager-active-color:                   @pagination-active-color;
 
-@pager-disabled-color:                 @pagination-disabled-color;
+@pager-disabled-color:                 @pagination-disabled-bg;
+
 
 
 //== Jumbotron
@@ -535,16 +536,16 @@
 @state-success-bg:               @greenDark;
 @state-success-border:           @state-success-bg;
 
-@state-info-text:                @yellow;
-@state-info-bg:                  @brown;
+@state-info-text:                @magenta;
+@state-info-bg:                  @magentaDark;
 @state-info-border:              @state-info-bg;
 
-@state-warning-text:             @magenta;
-@state-warning-bg:               @magentaDark;
+@state-warning-text:             @yellow;
+@state-warning-bg:               @brown;
 @state-warning-border:           @state-warning-bg;
 
-@state-danger-text:              @red;
-@state-danger-bg:                @black;
+@state-danger-text:              @redDark;
+@state-danger-bg:                @red;
 @state-danger-border:            @state-danger-bg;
 
 
@@ -825,9 +826,9 @@
 @breadcrumb-padding-vertical:   8px;
 @breadcrumb-padding-horizontal: 15px;
 //** Breadcrumb background color
-@breadcrumb-bg:                 #f5f5f5;
+@breadcrumb-bg:                 @black;
 //** Breadcrumb text color
-@breadcrumb-color:              #ccc;
+@breadcrumb-color:              @gray;
 //** Text color of current page in the breadcrumb
 @breadcrumb-active-color:       @gray-light;
 //** Textual separator for between breadcrumb elements
