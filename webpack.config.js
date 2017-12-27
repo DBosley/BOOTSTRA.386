@@ -10,6 +10,7 @@ const root = path.join.bind(path, ROOT);
 const isDev = process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development';
 const config = {
     entry: {
+        "Bootstrap": [path.join(process.cwd(), "node_modules\\bootstrap\\less\\bootstrap.less")],
         "BOOTSTRA.386": ['./demo/styles.less', './js/386.js']
     },
     devtool: 'source-map',
